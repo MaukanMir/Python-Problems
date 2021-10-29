@@ -58,9 +58,9 @@
 
 
 
-# class Solution:
-#     def isPalindrome(self, x: int) -> bool:
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
         
-#         check = str(x)[::-1]
-#         if check[-1] =="-":return False
-#         return int(check) == x
+        check = str(x)[::-1]
+        if check[-1] =="-":return False
+        return int(check) == x
