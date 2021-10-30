@@ -54,3 +54,17 @@ def lengthOfLastWord(self, s: str) -> int:
         reversed_s = s[::-1].lstrip()
         if " " not in reversed_s: return len(reversed_s)
         return reversed_s.index(" ")
+     
+
+#      Runtime: 28 ms, faster than 86.99% of Python3 online submissions for Length of Last Word.
+# Memory Usage: 14.3 MB, less than 63.90% of Python3 online submissions for Length of Last Word.
+
+     
+def lengthOfLastWord(self, s: str) -> int:
+        if not s:return 0
+        
+        reversed_s = s[::-1].lstrip()
+        for i in range(len(reversed_s)):
+            if reversed_s[i] ==" ":
+                return i
+        return i+1
