@@ -27,10 +27,12 @@
 # 1 <= s.length, t.length <= 5 * 104
 # s and t consist of lowercase English letters.
 
-# Success
-# Details 
-# Runtime: 36 ms, faster than 95.66% of Python3 online submissions for Valid Anagram.
-# Memory Usage: 14.6 MB, less than 31.79% of Python3 online submissions for Valid Anagram.
+Success
+Details 
+Runtime: 28 ms, faster than 99.64% of Python3 online submissions for Valid Anagram.
+Memory Usage: 14.4 MB, less than 81.79% of Python3 online submissions for Valid Anagram.
+
+
 
 
 
