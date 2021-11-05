@@ -57,8 +57,6 @@ class Solution:
         
         curr = head
         p1,p2 = None,curr
-        sentinel = ListNode(0)
-        sentinel.next = curr
         
         while curr is not None:
             p3 = curr.next
