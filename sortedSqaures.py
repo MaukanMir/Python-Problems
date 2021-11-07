@@ -32,3 +32,15 @@ Memory Usage: 16.4 MB, less than 12.37% of Python3 online submissions for Square
   class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
         return sorted([n**2 for n in nums])
+
+Runtime: 220 ms, faster than 83.83% of Python3 online submissions for Squares of a Sorted Array.
+Memory Usage: 15.9 MB, less than 91.16% of Python3 online submissions for Squares of a Sorted Array.
+ 
+ 
+ class Solution:
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        
+        for i in range(len(nums)):
+            nums[i] = nums[i]**2
+        
+        return sorted(nums)
