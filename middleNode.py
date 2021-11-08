@@ -27,11 +27,11 @@
 # Output: [4,5,6]
 # Explanation: Since the list has two middle nodes with values 3 and 4, we return the second one.
 
-
 Success
 Details 
-Runtime: 24 ms, faster than 96.77% of Python3 online submissions for Middle of the Linked List.
-Memory Usage: 14.2 MB, less than 73.84% of Python3 online submissions for Middle of the Linked List.
+Runtime: 20 ms, faster than 99.49% of Python3 online submissions for Middle of the Linked List.
+Memory Usage: 14.1 MB, less than 73.84% of Python3 online submissions for Middle of the Linked List.
+
   
   
   # Definition for singly-linked list.
