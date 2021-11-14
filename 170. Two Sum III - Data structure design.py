@@ -91,3 +91,44 @@ Memory Usage: 17.9 MB, less than 98.26% of Python3 online submissions for Two Su
 # obj.add(number)
 # param_2 = obj.find(value)
 
+
+Success
+Details 
+Runtime: 2004 ms, faster than 18.39% of Python3 online submissions for Two Sum III - Data structure design.
+Memory Usage: 18 MB, less than 98.26% of Python3 online submissions for Two Sum III - Data structure design.
+ 
+ 
+ class TwoSum:
+
+    def __init__(self):
+        self.arr = []
+        self.isSorted = False
+        
+
+    def add(self, number: int) -> None:
+        self.arr.append(number)
+        self.isSorted = False
+        
+
+    def find(self, value: int) -> bool:
+        if not self.isSorted:
+            self.arr.sort()
+            self.isSorted = True
+        newInfo = {}
+        
+        for idx,i in enumerate(self.arr):
+            targetSum = value - i
+            if targetSum in newInfo:return True
+            else:
+                newInfo[i] = i
+        return False
+        
+
+
+# Your TwoSum object will be instantiated and called as such:
+# obj = TwoSum()
+# obj.add(number)
+# param_2 = obj.find(value)
+
+
+
