@@ -37,7 +37,24 @@ Runtime: 1144 ms, faster than 26.99% of Python3 online submissions for Two Sum I
 Memory Usage: 18.3 MB, less than 74.35% of Python3 online submissions for Two Sum III - Data structure design.
   
 
+class TwoSum:
 
+    def __init__(self):
+        self.arr = []
+        
+
+    def add(self, number: int) -> None:
+        self.arr.append(number)
+        
+
+    def find(self, value: int) -> bool:
+        left, right = 0, len(self.arr)-1
+        self.arr.sort()
+        while left < right:
+            if self.arr[left] + self.arr[right] == value:return True
+            elif self.arr[left] + self.arr[right] < value: left+=1
+            elif self.arr[left] + self.arr[right] > value: right -=1
+        return False
 
 
 Success
