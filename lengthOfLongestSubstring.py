@@ -61,3 +61,22 @@ Next challenges:
             ans = max(ans, j-i+1)
             seen[check] = j+1
         return ans
+       
+
+     
+     
+     
+#      Runtime: 52 ms, faster than 92.16% of Python3 online submissions for Longest Substring Without Repeating Characters.
+# Memory Usage: 14.5 MB, less than 25.11% of Python3 online submissions for Longest Substring Without Repeating Characters.
+#    class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        charSet = set()
+        l =0
+        result =0
+        for r in range(len(s)):
+            while s[r] in charSet:
+                charSet.remove(s[l])
+                l+=1
+            charSet.add(s[r])
+            result = max(result,r-l+1)
+        return result
