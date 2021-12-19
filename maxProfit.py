@@ -80,3 +80,28 @@ class Solution:
                 max_price = prices[i] - min_price
         
         return max_price
+
+       
+#  Success
+# Details 
+# Runtime: 1127 ms, faster than 34.65% of Python3 online submissions for Best Time to Buy and Sell Stock.
+# Memory Usage: 25 MB, less than 95.34% of Python3 online submissions for Best Time to Buy and Sell Stock.
+
+
+
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        
+        l,r =0,1
+        
+        maxProfit =0
+        
+        while r< len(prices):
+            if prices[l] < prices[r]:
+                profit = prices[r] - prices[l]
+                maxProfit = max(profit, maxProfit)
+            else:
+                l =r
+            r+=1
+        return maxProfit
