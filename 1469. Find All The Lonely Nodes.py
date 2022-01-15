@@ -53,3 +53,33 @@ class Solution:
         
         traverse(root)
         return seen
+
+  Success
+Details 
+Runtime: 59 ms, faster than 48.01% of Python3 online submissions for Find All The Lonely Nodes.
+Memory Usage: 14.6 MB, less than 98.01% of Python3 online submissions for Find All The Lonely Nodes.
+    
+       
+       # Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def getLonelyNodes(self, root: Optional[TreeNode]) -> List[int]:
+        
+        stack = []
+        deque = collections.deque([(root,TreeNode())])
+        
+        while deque:
+            node, parent = deque.popleft()
+            print(parent)
+            if node:
+                if parent.right and not parent.left or parent.left and not parent.right:
+                    stack.append(node.val)
+                if node.left:
+                    deque.append((node.left,node))
+                if node.right:
+                    deque.append((node.right, node))
+        return stack
