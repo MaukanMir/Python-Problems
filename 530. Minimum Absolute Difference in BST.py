@@ -44,3 +44,29 @@ class Solution:
         seen.sort()
         
         return min([seen[n] - seen[n-1] for n in range(1,len(seen))])
+       
+#       Runtime: 52 ms, faster than 89.34% of Python3 online submissions for Minimum Absolute Difference in BST.
+# Memory Usage: 16.4 MB, less than 10.98% of Python3 online submissions for Minimum Absolute Difference in BST. 
+       
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
+        
+        seen = []
+        def inOrder(node):
+            
+            if node:
+                left = inOrder(node.left)
+                seen.append(node.val)
+                right = inOrder(node.right)
+            
+
+        inOrder(root)
+        seen.sort()
+        
+        return min([seen[n] - seen[n-1] for n in range(1,len(seen))])
