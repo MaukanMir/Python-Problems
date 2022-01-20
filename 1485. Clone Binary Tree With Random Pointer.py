@@ -85,3 +85,54 @@ class Solution:
             if node.random:
                 copy[node].random = copy[node.random]
         return copy[root]
+Success
+Details 
+Runtime: 244 ms, faster than 71.51% of Python3 online submissions for Clone Binary Tree With Random Pointer.
+Memory Usage: 19.6 MB, less than 36.30% of Python3 online submissions for Clone Binary Tree With Random
+ 
+ 
+ # Definition for Node.
+# class Node:
+#     def __init__(self, val=0, left=None, right=None, random=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+#         self.random = random
+
+class Solution:
+    def copyRandomBinaryTree(self, root: 'Optional[Node]') -> 'Optional[NodeCopy]':
+        if not root:
+            return None
+        
+        def dfs(node):
+            if not node:
+                return
+            
+            copy[node] = NodeCopy(node.val)
+            dfs(node.left)
+            dfs(node.right)
+            return node
+        
+        def dfsConnect(node):
+                if not node:
+                    return 
+                
+                if node.left:
+                    copy[node].left = copy[node.left]
+                if node.right:
+                    copy[node].right = copy[node.right]
+                if node.random:
+                    copy[node].random = copy[node.random]
+                
+                dfsConnect(node.left)
+                dfsConnect(node.right)
+                return node
+                
+        
+        
+        
+        
+        copy = {}
+        dfs(root)
+        dfsConnect(root)
+        return copy[root]
