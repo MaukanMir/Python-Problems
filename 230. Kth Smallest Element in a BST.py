@@ -45,3 +45,31 @@ class Solution:
         values.sort()
         
         return values[k-1]
+
+       
+       
+Success
+Details 
+Runtime: 48 ms, faster than 87.24% of Python3 online submissions for Kth Smallest Element in a BST.
+Memory Usage: 18.2 MB, less than 16.52% of Python3 online submissions for Kth Smallest Element in a BST.
+ 
+ 
+ # Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        if not root:
+            return 0
+        values = []
+        def dfs(node):
+            if not node:
+                return
+            dfs(node.left)
+            values.append(node.val)
+            dfs(node.right)
+        dfs(root)
+        return values[k-1]
