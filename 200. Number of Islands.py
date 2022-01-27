@@ -58,3 +58,41 @@ class Solution:
                 if grid[r][c] == '1' and dfs(r,c):
                     area+=1
         return area
+
+       
+ # Success
+# Details 
+# Runtime: 320 ms, faster than 72.65% of Python3 online submissions for Number of Islands.
+# Memory Usage: 21.6 MB, less than 23.47% of Python3 online submissions for Number of Islands.
+
+
+
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        
+        ROWS, COLS, visited= len(grid), len(grid[0]), set()
+        
+        def bfs(r,c):
+            directions = [[1,0], [-1,0], [0,1], [0,-1]]
+            queue = deque()
+            queue.append((r,c))
+    
+            while queue:
+                X,Y = queue.popleft()
+                
+                for x,y in directions:
+                    sideX, sideY = x+X, y+Y
+                    
+                    if sideX >=0 and sideX < ROWS and sideY>=0 and sideY < COLS and grid[sideX][sideY] =='1' and  (sideX,sideY) not in visited:
+                        queue.append([sideX,sideY])
+                        visited.add((sideX,sideY))
+                         
+            
+            
+        area =0
+        for r in range(ROWS):
+            for c in range(COLS):
+                if (r,c) not in visited and grid[r][c] == '1':
+                     bfs(r,c)
+                     area+=1
+        return area
