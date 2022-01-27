@@ -68,3 +68,44 @@ class Solution:
                 if grid2[r][c] == 1 and (r,c) not in visited and dfs(r,c):
                     islands+=1
         return islands
+
+Success
+Details 
+Runtime: 3032 ms, faster than 91.57% of Python3 online submissions for Count Sub Islands.
+Memory Usage: 84.5 MB, less than 54.67% of Python3 online submissions for Count Sub Islands.
+ 
+ 
+ class Solution:
+    def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
+        
+        ROWS,COLS, islands = len(grid1), len(grid1[0]), 0
+        
+        def dfs(r,c):
+            if r<0 or r >= ROWS or c < 0 or c >= COLS or grid2[r][c] == 0 :
+                return True
+            
+            grid2[r][c] =0
+            check = True
+            if grid1[r][c] ==0:
+                check = False
+            
+            
+            
+        
+            check = dfs(r+1, c) and check
+            check = dfs(r-1,c) and check
+            check = dfs(r,c+1) and check
+            check = dfs(r,c-1) and check
+        
+            return check
+          
+            
+        
+            
+        
+        for r in range(ROWS):
+            for c in range(COLS):
+                if grid2[r][c] == 1 and dfs(r,c):
+                    islands+=1
+        return islands
+  
