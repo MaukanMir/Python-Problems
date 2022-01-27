@@ -41,3 +41,30 @@ def getUnVisited(i,j, matrix,visited):
 		if j < len(matrix[0])-1 and not visited[i][j+1]:
 			unvistedN.append([i,j+1])
 	    return unvistedN
+
+
+
+READABLE IMPLEMENTATION:
+
+def riverSizes(matrix):
+    
+	ROWS, COLS, visited, area = len(matrix), len(matrix[0]), set(), []
+	
+	def dfs(r,c):
+		if r<0 or r>= ROWS or c <0 or c>=COLS or (r,c) in visited or matrix[r][c] ==0:
+			return 0
+		
+		visited.add((r,c))
+		
+		return ( 1+
+				dfs(r+1,c)+
+				dfs(r-1,c)+
+				dfs(r,c+1)+
+				dfs(r,c-1)
+		
+		)
+	for r in range(ROWS):
+		for c in range(COLS):
+			if matrix[r][c] == 1 and (r,c) not in visited:
+				area.append(dfs(r,c))
+	return area
