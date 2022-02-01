@@ -40,4 +40,28 @@ class Solution:
                 maxValue = max( maxValue, total/ ((right-left) +1) )
             right +=1
         return maxValue
+    
+    
+Success
+Details 
+Runtime: 1248 ms, faster than 76.30% of Python3 online submissions for Maximum Average Subarray I.
+Memory Usage: 25.7 MB, less than 84.02% of Python3 online submissions for Maximum Average Subarray I.
+ 
+ 
+ class Solution:
+    def findMaxAverage(self, nums: List[int], k: int) -> float:
+        
+        runningSum = 0
+        
+        for i in range(k):
+            runningSum += nums[i]
+            
+        maxSum = runningSum
+        
+        for i in range(k, len(nums) ):
+            runningSum += nums[i] - nums[i-k]
+            maxSum = max(maxSum, runningSum)
+        return maxSum/k
+        
+
         
