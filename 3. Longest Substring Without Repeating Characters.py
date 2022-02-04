@@ -80,3 +80,25 @@ Next challenges:
             charSet.add(s[r])
             result = max(result,r-l+1)
         return result
+       
+       
+  Success
+Details 
+Runtime: 52 ms, faster than 95.36% of Python3 online submissions for Longest Substring Without Repeating Characters.
+Memory Usage: 14.1 MB, less than 93.81% of Python3 online submissions for Longest Substring Without Repeating Characters.
+ 
+ 
+ class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        if not s:return 0
+        
+        longest, seen, startIdx = [0,1], {}, 0
+        
+        for i, char in enumerate(s):
+            if char in seen:
+                startIdx = max(startIdx, seen[char]+1)
+            if longest[1] - longest[0] < i +1 - startIdx:
+                longest = [startIdx,i+1]
+            seen[char] =i
+        
+        return longest[1] - longest[0]
