@@ -23,3 +23,26 @@ class Solution:
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
         
         return set(nums1).intersection(set(nums2))
+
+    
+    
+ Success
+Details 
+Runtime: 68 ms, faster than 43.47% of Python3 online submissions for Intersection of Two Arrays.
+Memory Usage: 14 MB, less than 94.39% of Python3 online submissions for Intersection of Two Arrays.
+
+ 
+ 
+ class Solution:
+    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        
+
+        short = nums1 if len(nums1) < len(nums2) else nums2
+        long = nums2 if len(nums2) > len(nums1) else nums1
+        values = []
+     
+        for i in range(len(long)):
+            if i < len(short):
+                if short[i] in long and short[i] not in values:
+                    values.append(short[i])
+        return values
