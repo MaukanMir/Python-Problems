@@ -34,3 +34,19 @@ class Solution:
         
         
         return max(counter, key=counter.get)
+       
+  Success
+Details 
+Runtime: 1191 ms, faster than 40.60% of Python3 online submissions for Find Center of Star Graph.
+Memory Usage: 50 MB, less than 83.18% of Python3 online submissions for Find Center of Star Graph.
+ 
+ 
+ class Solution:
+    def findCenter(self, edges: List[List[int]]) -> int:
+        
+        
+        one, two = edges[0][0], edges[0][1]
+        
+        if one in edges[1]:
+            return one
+        return two
