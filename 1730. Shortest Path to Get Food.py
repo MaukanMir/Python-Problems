@@ -70,4 +70,43 @@ class Solution:
                     visited.add((newR,newC))
         
         return -1
+     
+     
+     
+     
+     
+     
+ Success
+Details 
+Runtime: 496 ms, faster than 96.91% of Python3 online submissions for Shortest Path to Get Food.
+Memory Usage: 20.1 MB, less than 32.20% of Python3 online submissions for Shortest Path to Get Food.
+ 
+ 
+ class Solution:
+    def getFood(self, grid: List[List[str]]) -> int:
+        def bfs(r,c):
+            queue = deque([[r,c,0]])
+
+            while queue:
+                r,c,dist = queue.popleft()
+
+                if grid[r][c] =='#':
+                    return dist
+
+                for R, C in directions:
+                    newR,newC = r+R, c+C
+
+                    if newR >=0 and newR< ROWS and newC>=0 and newC< COLS and (newR,newC) not in visited and grid[newR][newC] != "X":
+                        queue.append([newR,newC,dist+1])
+                        visited.add((newR,newC))
+
+            return -1
+    
+        ROWS,COLS,visited,directions = len(grid), len(grid[0]), set(), [(-1,0),(0,-1),(1,0),(0,1)]
+        
+        for r in range(ROWS):
+            for c in range(COLS):
+                if grid[r][c] =='*':
+                    return bfs(r,c)
+
                 
