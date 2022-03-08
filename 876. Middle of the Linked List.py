@@ -44,3 +44,28 @@ class Solution:
             
         
         return curr if count %2 !=0 else curr.next
+
+       
+       
+Success
+Details 
+Runtime: 28 ms, faster than 95.01% of Python3 online submissions for Middle of the Linked List.
+Memory Usage: 13.9 MB, less than 44.37% of Python3 online submissions for Middle of the Linked List.
+ 
+ 
+ # Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        
+        
+        slow,fast = head,head
+        
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        
+        return slow
