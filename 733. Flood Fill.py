@@ -52,3 +52,28 @@ class Solution:
 
         dfs(sr,sc)
         return image
+       
+    class Solution:
+    def floodFill(self, image: List[List[int]], sr: int, sc: int, newColor: int) -> List[List[int]]:
+        
+        if image[sr][sc] == newColor:
+            return image
+        color = image[sr][sc]
+        ROWS,COLS = len(image), len(image[0])
+        
+        def dfs(r,c):
+            if r<0 or r>=ROWS or c<0 or c>= COLS or image[r][c] != color:
+                return
+            
+            image[r][c] = newColor
+            dfs(r+1,c)
+            dfs(r-1,c)
+            dfs(r,c+1)
+            dfs(r,c-1)
+        
+        
+        dfs(sr,sc)
+        return image
+Runtime: 80 ms, faster than 83.96% of Python3 online submissions for Flood Fill.
+Memory Usage: 14.2 MB, less than 38.12% of Python3 online submissions for Flood Fill.
+
