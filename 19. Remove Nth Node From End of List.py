@@ -55,3 +55,36 @@ class Solution:
         check.next = check.next.next
         
         return head
+
+       
+       Success
+Details 
+Runtime: 24 ms, faster than 99.61% of Python3 online submissions for Remove Nth Node From End of List.
+Memory Usage: 13.9 MB, less than 82.98% of Python3 online submissions for Remove Nth Node From End of List.
+ 
+ 
+ 
+ # Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        currentNode = head
+        
+        for i in range(n):
+            currentNode = currentNode.next
+        
+        if currentNode is None:
+            return head.next
+        
+        newNode = head
+        
+        while currentNode.next is not None:
+            newNode = newNode.next
+            currentNode = currentNode.next
+        
+        newNode.next = newNode.next.next
+        
+        return head
