@@ -83,3 +83,21 @@ class Solution:
                 if node.right:
                     deque.append((node.right, node))
         return stack
+Success
+Details 
+Runtime: 48 ms, faster than 98.70% of Python3 online submissions for Find All The Lonely Nodes.
+Memory Usage: 14.4 MB, less than 82.18% of Python3 online submissions for Find All The Lonely Nodes.
+ 
+ class Solution:
+    def getLonelyNodes(self, root: Optional[TreeNode]) -> List[int]:
+        
+        stack,lonely = deque([(root, TreeNode())]),[]
+        
+        while stack:
+            node, parent = stack.popleft()
+            if node:
+                if parent.left and not parent.right or parent.right and not parent.left:
+                    lonely.append(node.val)
+                if node.left: stack.append((node.left, node))
+                if node.right: stack.append((node.right,node))
+        return lonely
