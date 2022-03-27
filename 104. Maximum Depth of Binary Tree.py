@@ -40,4 +40,23 @@ class Solution:
             if node.left: stack.append([node.left, distance])
             if node.right: stack.append([node.right,distance])
         return maxValue
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
         
+        if not root: return 0
+        
+        stack, maxValue =[[root,0]],float('-inf')
+        
+        while stack:
+            node, distance = stack.pop()
+            maxValue = max(maxValue, distance+1)
+            if node.left: stack.append([node.left, distance+1])
+            if node.right: stack.append([node.right,distance+1])
+        return maxValue
