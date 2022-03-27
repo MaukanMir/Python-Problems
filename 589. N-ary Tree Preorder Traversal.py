@@ -42,3 +42,19 @@ class Solution:
                 print(node.children)
                 stack.extend(node.children[::-1])
         return seen
+
+class Solution:
+    def preorder(self, root: 'Node') -> List[int]:
+        
+        if not root:
+            return []
+        stack, result = [root], []
+        
+        while stack:
+            node = stack.pop()
+            
+            if node:
+                result.append(node.val)
+                for child in reversed(node.children):
+                    stack.append(child)
+        return result
