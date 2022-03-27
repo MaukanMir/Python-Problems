@@ -53,3 +53,33 @@ class Solution:
                 for c in node.children:
                     stack.append((current+1, c))
         return distance
+       
+Success
+Details 
+Runtime: 49 ms, faster than 79.80% of Python3 online submissions for Maximum Depth of N-ary Tree.
+Memory Usage: 16.1 MB, less than 54.38% of Python3 online submissions for Maximum Depth of N-ary Tree.
+ 
+ 
+ """
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+"""
+
+class Solution:
+    def maxDepth(self, root: 'Node') -> int:
+        if not root:return 0
+        
+        stack, maxV = [[root,0]], float('-inf')
+        
+        while stack:
+            node, dist = stack.pop()
+            
+            maxV = max(maxV,dist+1)
+            if node:
+                for child in node.children:
+                    stack.append([child,dist+1])
+        return maxV
+
