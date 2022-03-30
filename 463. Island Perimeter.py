@@ -67,3 +67,24 @@ class Solution:
                     dfs(r,c,visited)
         
         return self.total
+Success
+Details 
+Runtime: 530 ms, faster than 89.22% of Python3 online submissions for Island Perimeter.
+Memory Usage: 14.1 MB, less than 94.26% of Python3 online submissions for Island Perimeter.
+
+
+class Solution:
+    def islandPerimeter(self, grid: List[List[int]]) -> int:
+        
+        ROWS, COLS,score = len(grid), len(grid[0]),0
+        
+        for r in range(ROWS):
+            for c in range(COLS):
+                if grid[r][c] ==1:
+                    score +=4
+                    
+                    if r >0 and grid[r-1][c] ==1:
+                        score -=2
+                    if c>0 and grid[r][c-1] ==1:
+                        score -=2
+        return score
