@@ -46,3 +46,26 @@ class Solution:
             if node.left:
                 stack.append(node.left)
         return True
+      
+Success
+Details 
+Runtime: 44 ms, faster than 55.05% of Python3 online submissions for Univalued Binary Tree.
+Memory Usage: 13.9 MB, less than 65.27% of Python3 online submissions for Univalued Binary Tree.
+
+ 
+ class Solution:
+    def isUnivalTree(self, root: Optional[TreeNode]) -> bool:
+        if not root: return True
+    
+        stack = [[root,root.val]]
+        
+        while stack:
+            node, curr = stack.pop()
+            
+            if node.left:
+                stack.append([node.left, node.val])
+            if node.right:
+                stack.append([node.right, node.val])
+            if node and node.val != curr:
+                return False
+        return True
