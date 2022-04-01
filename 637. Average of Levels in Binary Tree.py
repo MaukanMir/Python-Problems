@@ -50,3 +50,33 @@ class Solution:
                 
             averages.append(total / lenOfNodes)
         return averages
+
+       
+       Success
+Details 
+Runtime: 40 ms, faster than 99.60% of Python3 online submissions for Average of Levels in Binary Tree.
+Memory Usage: 16.4 MB, less than 89.61% of Python3 online submissions for Average of Levels in Binary Tree.
+ 
+ # Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
+        
+        result, stack = [],deque([root])
+        while stack:
+            
+            total, length =0, len(stack)
+            for i in range(length):
+                node = stack.popleft()
+                if node.left:
+                    stack.append(node.left)
+                if node.right:
+                    stack.append(node.right)
+                
+                total += node.val
+            result.append(total/length)
+        return result
