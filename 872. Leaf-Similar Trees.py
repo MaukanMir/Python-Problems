@@ -56,3 +56,33 @@ class Solution:
                     stack.append(node.left)
             return seen
         return find(root1) == find(root2)
+
+       
+Success
+Details 
+Runtime: 28 ms, faster than 97.92% of Python3 online submissions for Leaf-Similar Trees.
+Memory Usage: 13.8 MB, less than 99.50% of Python3 online submissions for Leaf-Similar Trees.
+ 
+ class Solution:
+    def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
+        
+        
+        stack1,stack2, one,two= [root1],[root2], [],[]
+        
+        while stack1:
+            node1 =stack1.pop()
+            
+            if not node1.left and not node1.right:
+                one.append(node1.val)
+            if node1.left:stack1.append(node1.left)
+            if node1.right: stack1.append(node1.right)
+        
+        
+        while stack2:
+            node2 = stack2.pop()
+            if not node2.left and not node2.right:
+                two.append(node2.val)
+            if node2.left: stack2.append(node2.left)
+            if node2.right: stack2.append(node2.right)
+        
+        return one == two
