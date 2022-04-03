@@ -84,3 +84,34 @@ class Solution:
                 stack.append([node.left, node1.left])
                 stack.append([node.right, node1.right])
         return True
+
+       
+Success
+Details 
+Runtime: 28 ms, faster than 95.51% of Python3 online submissions for Same Tree.
+Memory Usage: 13.9 MB, less than 79.32% of Python3 online submissions for Same Tree.
+ 
+ 
+ # Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+
+        
+    
+        stack = deque([[p,q]])
+        
+        while stack:
+            node, node1 = stack.popleft()
+            
+
+            if node1 and node and node1.val == node.val:
+                stack.append([node.left, node1.left])
+                stack.append([node.right, node1.right])
+            elif node1 or node:
+                return False
+        return True
