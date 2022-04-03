@@ -46,3 +46,41 @@ class Solution:
         if p.val != q.val: return False
         
         return self.isSameTree(p.right,q.right) and self.isSameTree(p.left,q.left)
+
+       
+Success
+Details 
+Runtime: 30 ms, faster than 89.68% of Python3 online submissions for Same Tree.
+Memory Usage: 14 MB, less than 33.62% of Python3 online submissions for Same Tree.
+ 
+ 
+ # Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+
+        def check(p,q):
+            if not p and not q:
+                return True
+            if not p or not q:
+                return False
+            if p.val != q.val:
+                return False
+
+            return True
+    
+        stack = deque([[p,q]])
+        
+        while stack:
+            node, node1 = stack.popleft()
+            
+            if not check(node, node1):
+                return False
+            if node:
+                stack.append([node.left, node1.left])
+                stack.append([node.right, node1.right])
+        return True
