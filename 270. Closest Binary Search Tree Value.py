@@ -85,3 +85,34 @@ class Solution:
         
         inOrder(root)
         return min([[abs(n- target),n] for n in nodes])[1]
+
+  
+ Success
+Details 
+Runtime: 40 ms, faster than 92.28% of Python3 online submissions for Closest Binary Search Tree Value.
+Memory Usage: 16.2 MB, less than 36.41% of Python3 online submissions for Closest Binary Search Tree Value.
+
+       
+   # Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def closestValue(self, root: Optional[TreeNode], target: float) -> int:
+        
+        if not root:
+            return 0
+        nodes, self.minValue,self.key = [],float('inf'), 0
+        def inOrder(node):
+            if not node:
+                return 0
+            inOrder(node.left)
+            if abs(target-node.val) < self.minValue:
+                self.key = node.val
+                self.minValue = abs(target-node.val)
+            inOrder(node.right)
+        
+        inOrder(root)
+        return self.key
