@@ -67,3 +67,31 @@ class Solution:
         for i in keys:
             if keys[i] == keys[highest]: seen.append(i)
         return seen if len(seen) >0 else keys.keys()
+
+Success
+Details 
+Runtime: 2804 ms, faster than 5.01% of Python3 online submissions for Find Mode in Binary Search Tree.
+Memory Usage: 18.5 MB, less than 44.13% of Python3 online submissions for Find Mode in Binary Search Tree.       
+ # Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def findMode(self, root: Optional[TreeNode]) -> List[int]:
+        if not root:
+            return 0
+        
+        stack,track = [root], {}
+        
+        while stack:
+            node = stack.pop()
+            
+            if node:
+                track[node.val] = track.get(node.val,0)+1
+            if node.left:
+                stack.append(node.left)
+            if node.right:
+                stack.append(node.right)
+        return [n for n in track if track[n] == max(track.values())]
