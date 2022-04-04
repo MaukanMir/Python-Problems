@@ -55,3 +55,33 @@ class Solution:
                     key = node.val
                 
         return key
+
+       
+       
+Success
+Details 
+Runtime: 62 ms, faster than 43.01% of Python3 online submissions for Closest Binary Search Tree Value.
+Memory Usage: 17.1 MB, less than 5.17% of Python3 online submissions for Closest Binary Search Tree Value.
+
+ 
+ # Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def closestValue(self, root: Optional[TreeNode], target: float) -> int:
+        
+        if not root:
+            return 0
+        nodes = []
+        def inOrder(node):
+            if not node:
+                return 0
+            inOrder(node.left)
+            nodes.append(node.val)
+            inOrder(node.right)
+        
+        inOrder(root)
+        return min([[abs(n- target),n] for n in nodes])[1]
