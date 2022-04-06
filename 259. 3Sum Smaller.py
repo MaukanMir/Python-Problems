@@ -46,3 +46,29 @@ Memory Usage: 14 MB, less than 16.17% of Python3 online submissions for 3Sum Sma
             else:
                 right -=1
         return result
+
+       
+Success
+Details 
+Runtime: 1742 ms, faster than 8.58% of Python3 online submissions for 3Sum Smaller.
+Memory Usage: 13.9 MB, less than 90.99% of Python3 online submissions for 3Sum Smaller.
+ 
+ 
+ class Solution:
+    def threeSumSmaller(self, nums: List[int], target: int) -> int:
+        if len(set(nums)) ==1 and nums[0] ==0:return 0
+        
+        nums.sort()
+        result =0
+    
+        for i in range(len(nums)-2):
+            
+            left, right = i+1, len(nums)-1
+            while left < right:
+                if nums[left] + nums[i] + nums[right] < target:
+                    result += right - left
+                    left+=1
+                else:
+                    right -=1
+            
+        return result
