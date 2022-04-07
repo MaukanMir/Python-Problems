@@ -39,3 +39,20 @@ class Solution:
         for word in strs:
             ans[tuple(sorted(word))].append(word)
         return ans.values()
+Success
+Details 
+Runtime: 120 ms, faster than 73.55% of Python3 online submissions for Group Anagrams.
+Memory Usage: 19.9 MB, less than 17.19% of Python3 online submissions for Group Anagrams.
+
+ 
+ class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        
+        ans = collections.defaultdict(list)
+        
+        for word in strs:
+            count = [0] * 26
+            for letter in word:
+                count[ord(letter) - ord('a')]+=1
+            ans[tuple(count)].append(word)
+        return ans.values()
