@@ -24,8 +24,8 @@ The number of nodes in the tree is in the range [0, 2000].
 
 Success
 Details 
-Runtime: 42 ms, faster than 64.49% of Python3 online submissions for Binary Tree Zigzag Level Order Traversal.
-Memory Usage: 14.3 MB, less than 16.51% of Python3 online submissions for Binary Tree Zigzag Level Order Traversal.
+Runtime: 36 ms, faster than 84.54% of Python3 online submissions for Binary Tree Zigzag Level Order Traversal.
+Memory Usage: 14.1 MB, less than 60.90% of Python3 online submissions for Binary Tree Zigzag Level Order Traversal.
 
 
 # Definition for a binary tree node.
@@ -63,3 +63,7 @@ class Solution:
             else:
                 res.append(keys[k][::-1])
         return res
+
+       
+       
+     
