@@ -37,3 +37,13 @@ class Solution:
             if keys[nums[i]] ==2:
                 return True
         return False
+
+       
+Success
+Details 
+Runtime: 457 ms, faster than 91.42% of Python3 online submissions for Contains Duplicate.
+Memory Usage: 26 MB, less than 31.63% of Python3 online submissions for Contains Duplicate.
+ 
+ class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        return True if len(nums) != len(set(nums)) else False
