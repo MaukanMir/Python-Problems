@@ -42,3 +42,24 @@
             
             res = max(res,rightPointer -leftPointer +1)
         return res
+
+       
+# Success
+# Details 
+# Runtime: 140 ms, faster than 76.32% of Python3 online submissions for Longest Repeating Character Replacement.
+# Memory Usage: 13.9 MB, less than 94.18% of Python3 online submissions for Longest Repeating Character Replacement.       
+class Solution:
+def characterReplacement(self, s: str, k: int) -> int:
+        
+        count,res, left, maxValue ={}, 0,0,0
+        
+        for right in range(len(s)):
+            count[s[right]] = count.get(s[right],0) +1
+            maxValue = max(maxValue,count[s[right]])
+            
+            if (right - left +1) - maxValue >k:
+                count[s[left]] -=1
+                left+=1
+            
+            res = max(res, (right-left+1))
+        return res
