@@ -56,3 +56,24 @@ Memory Usage: 19.9 MB, less than 17.19% of Python3 online submissions for Group 
                 count[ord(letter) - ord('a')]+=1
             ans[tuple(count)].append(word)
         return ans.values()
+ 
+ 
+#  Success
+# Details 
+# Runtime: 123 ms, faster than 65.07% of Python3 online submissions for Group Anagrams.
+# Memory Usage: 17.1 MB, less than 88.67% of Python3 online submissions for Group Anagrams.
+
+ class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        
+        seen = {}
+        
+        for idx, word in enumerate(strs):
+            match = "".join(sorted(word))
+            if match in seen:
+                seen[match].append(word)
+            else:
+                seen[match] = [word]
+        
+        return list(seen.values())
+                
