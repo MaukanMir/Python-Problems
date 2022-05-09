@@ -87,3 +87,17 @@ class Solution:
     
     def swap(self,root):
          root.left, root.right = root.right,root.left
+
+      
+class Solution:
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        
+        if not root:
+            return None
+        
+        left, right = self.invertTree(root.left), self.invertTree(root.right)
+        
+        root.left = right
+        root.right = left
+        
+        return root
