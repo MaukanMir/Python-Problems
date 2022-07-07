@@ -109,3 +109,46 @@ Memory Usage: 84.5 MB, less than 54.67% of Python3 online submissions for Count 
                     islands+=1
         return islands
   
+Success
+Details 
+Runtime: 3481 ms, faster than 86.15% of Python3 online submissions for Count Sub Islands.
+Memory Usage: 28.9 MB, less than 88.46% of Python3 online submissions for Count Sub Islands.
+ 
+ class Solution:
+    def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
+        
+        ROWS, COLS = len(grid1), len(grid1[0])
+        visited, islands = set(), 0
+        
+        
+        def bfs(r,c):
+            q = deque()
+            q.append([r,c])
+            
+            directions = [[1,0], [-1,0], [0,-1], [0,1]]
+            # visited.add((r,c))
+            res = True if grid1[r][c] == 1 else False
+            while q:
+                r,c = q.popleft()
+                
+                for dr,dc in directions:
+                    row,col = r+ dr, c + dc
+                    
+                    if not (0 <= row < ROWS) or not (0 <= col < COLS) or (row,col) in visited or grid2[row][col] != 1:
+                        continue
+                    grid2[row][col] = 0
+                    visited.add((row,col))
+                    q.append([row,col])
+                    if not grid1[row][col]:
+                        res = False
+            
+            return res
+        
+        
+        for r in range(ROWS):
+            for c in range(COLS):
+                if grid2[r][c] ==1:
+                    grid2[r][c] =0
+                    islands += 1 if bfs(r,c) else 0
+        return islands
+
