@@ -52,3 +52,43 @@ class Solution:
             islands += sum(grid[r])
         
         return islands
+
+       
+       Success
+Details 
+Runtime: 550 ms, faster than 94.18% of Python3 online submissions for Number of Enclaves.
+Memory Usage: 15.5 MB, less than 69.57% of Python3 online submissions for Number of Enclaves.
+ 
+ class Solution:
+    def numEnclaves(self, grid: List[List[int]]) -> int:
+        ROWS, COLS = len(grid), len(grid[0])
+        visited, islands = set(), 0
+        
+        def bfs(r,c):
+            q = deque([])
+            q.append([r,c])
+            
+            directions = [ [1,0], [0,1], [-1,0], [0,-1] ]
+            grid[r][c] = 0
+            visited.add((r,c))
+            while q:
+                r,c = q.popleft()
+                for dr,dc in directions:
+                    row,col = r+dr,c+dc
+
+                    if not (0<=row < ROWS) or not (0<=col <COLS) or grid[row][col] != 1 or (row,col) in visited:
+                        continue
+
+                    visited.add((row,col))
+                    q.append([row,col])
+                    grid[row][col] = 0
+        
+        
+        for r in range(ROWS):
+            for c in range(COLS):
+                if grid[r][c] ==1 and (r in [0,ROWS-1] or c in [0,COLS-1]):
+                    bfs(r,c)
+        
+        for r in range(ROWS):
+            islands += sum(grid[r])
+        return islands
