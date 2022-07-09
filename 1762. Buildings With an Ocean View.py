@@ -51,3 +51,24 @@ class Solution:
             maxBuilding = max(buildingHeight, maxBuilding)
         
         return res[::-1]
+       
+ 
+Success
+Details 
+Runtime: 765 ms, faster than 87.18% of Python3 online submissions for Buildings With an Ocean View.
+Memory Usage: 31.5 MB, less than 71.97% of Python3 online submissions for Buildings With an Ocean View.
+
+ class Solution:
+    def findBuildings(self, heights: List[int]) -> List[int]:
+        
+        
+        res,maxHeight = [], 0
+        
+        for i in range(len(heights)-1,-1,-1):
+            buildingHeight = heights[i]
+            
+            if buildingHeight > maxHeight:
+                res.append(i)
+                maxHeight = buildingHeight
+        
+        return res[::-1]
