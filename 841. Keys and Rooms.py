@@ -46,3 +46,26 @@ class Solution:
                     seen[adjacent] = True
                     stack.append(adjacent)
         return all(seen)
+       
+       
+       Success
+Details 
+Runtime: 72 ms, faster than 87.43% of Python3 online submissions for Keys and Rooms.
+Memory Usage: 14.9 MB, less than 24.11% of Python3 online submissions for Keys and Rooms.
+class Solution:
+    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+        
+        seen = [False] * len(rooms)
+        seen[0] = True
+        visited = set()
+        def dfs(node):
+            if node in visited or node >= len(rooms):
+                return False
+            
+            for nextNode in rooms[node]:
+                if not seen[nextNode]:
+                    seen[nextNode] = True
+                    dfs(nextNode)
+        dfs(0)
+        return all(seen)
+       
