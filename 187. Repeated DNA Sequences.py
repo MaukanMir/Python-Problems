@@ -7,6 +7,12 @@ Given a string s that represents a DNA sequence, return all the 10-letter-long s
 
  
 
+Success
+Details 
+Runtime: 71 ms, faster than 89.47% of Python3 online submissions for Repeated DNA Sequences.
+Memory Usage: 26.1 MB, less than 71.43% of Python3 online submissions for Repeated DNA Sequences.
+
+
 Example 1:
 
 Input: s = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"
