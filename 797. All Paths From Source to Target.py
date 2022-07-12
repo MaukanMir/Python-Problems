@@ -42,3 +42,22 @@ class Solution:
         path = deque([0])
         backtrack(0,path)
         return directions
+
+ class Solution:
+    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+        
+        q,res = deque(), []
+        q.append([0])
+        
+        while q:
+            
+            top = q.popleft()
+            if top[-1] == len(graph)-1:
+                res.append(top)
+                continue
+            
+            for node in graph[top[-1]]:
+                q.append(top + [node])
+        
+        return res
+ 
