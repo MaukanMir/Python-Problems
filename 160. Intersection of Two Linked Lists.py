@@ -71,3 +71,41 @@ class Solution:
         for key, value in hashMap.items():
             if value >1:
                 return key
+
+ Success
+Details 
+Runtime: 239 ms, faster than 50.35% of Python3 online submissions for Intersection of Two Linked Lists.
+Memory Usage: 29.7 MB, less than 50.07% of Python3 online submissions for Intersection of Two Linked Lists.
+        
+  # Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        
+        a,b =0,0
+        currA,currB = headA,headB
+        while currA:
+            a+=1
+            currA = currA.next
+        while currB:
+            b+=1
+            currB = currB.next
+        
+        first = headA if a < b else headB
+        sec = headB if b > a else headA
+        low,hi = a if a <b else b, b if a < b else a
+        while hi > low:
+            sec = sec.next
+            hi-=1
+        
+        
+        while first and sec:
+            if first == sec:
+                return first
+            first = first.next
+            sec = sec.next
+        return None
