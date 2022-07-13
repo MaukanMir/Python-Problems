@@ -43,6 +43,11 @@ Output: No intersection
 Explanation: From the head of A, it reads as [2,6,4]. From the head of B, it reads as [1,5]. Since the two lists do not intersect, intersectVal must be 0, while skipA and skipB can be arbitrary values.
 Explanation: The two lists do not intersect, so return null.
 
+
+Success
+Details 
+Runtime: 178 ms, faster than 80.92% of Python3 online submissions for Intersection of Two Linked Lists.
+Memory Usage: 30.3 MB, less than 8.59% of Python3 online submissions for Intersection of Two Linked Lists.
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):
