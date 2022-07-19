@@ -51,3 +51,29 @@ class Solution:
                 q.append(right)
             arr[val] = -1
         return False
+       
+       
+    
+    
+Success
+Details 
+Runtime: 345 ms, faster than 78.71% of Python3 online submissions for Jump Game III.
+Memory Usage: 68.8 MB, less than 28.18% of Python3 online submissions for Jump Game III.
+    
+    class Solution:
+    def canReach(self, arr: List[int], start: int) -> bool:
+        
+        
+        def dfs(val):
+            if  not(0 <= val < len(arr)) or arr[val] == -1:
+                return False
+            if arr[val] == 0:
+                return True
+
+            left, right = val - arr[val], val + arr[val]
+            arr[val] = -1
+            return dfs(left) or dfs(right)
+            
+            # arr[val] = -1
+        
+        return dfs(start)
